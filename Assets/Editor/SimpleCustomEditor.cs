@@ -19,12 +19,27 @@ public class SimpleCustomEditor : EditorWindow
         // Each editor window contains a root VisualElement object
         VisualElement root = rootVisualElement;
 
-        // VisualElements objects can contain other VisualElement following a tree hierarchy.
-        VisualElement label = new Label("Hello World! From C#");
-        root.Add(label);
-
         // Instantiate UXML
         VisualElement labelFromUXML = m_VisualTreeAsset.Instantiate();
         root.Add(labelFromUXML);
+        //START OF OWN CODE
+        SetupButton();
+    }
+
+    int count = 0;
+
+    void SetupButton(){
+        var buttons = rootVisualElement.Query<Button>();
+        buttons.ForEach(RegisterHandler);
+    }
+
+    void RegisterHandler(Button button){
+        button.RegisterCallback<ClickEvent>(UpdateLabelOnClick);
+    }
+
+    void UpdateLabelOnClick(ClickEvent evt){
+        Button button = evt.currentTarget as Button;
+        count++;
+        button.text = "count " + count;
     }
 }
