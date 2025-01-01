@@ -1,12 +1,12 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <engine:VisualElement name="Screen" style="flex-grow: 1; flex-direction: row;">
-        <engine:VisualElement name="Resources" style="flex-grow: 1; width: auto; flex-direction: column; justify-content: flex-start; align-items: stretch;">
+        <engine:VisualElement name="Resources" style="flex-grow: 1; width: 33%; flex-direction: column; justify-content: flex-start; align-items: stretch;">
             <engine:VisualElement name="Plungus" style="flex-grow: 1; flex-direction: row; align-items: stretch; justify-content: flex-start; align-self: stretch;">
                 <engine:Label text="Plunguses" name="Label" style="width: 19%;" />
                 <engine:ProgressBar value="0" title="0/100" name="Bar" style="align-self: stretch; align-items: stretch; width: 79%; height: auto;" />
             </engine:VisualElement>
         </engine:VisualElement>
-        <engine:VisualElement name="Buttons" style="flex-grow: 1; flex-wrap: wrap; flex-direction: row; align-items: flex-start;">
+        <engine:VisualElement name="Buttons" style="flex-grow: 1; flex-wrap: wrap; flex-direction: row; align-items: flex-start; width: 66%;">
             <engine:Button text="Create Plungus" name="Plungus" style="width: 200px; height: 50px;" />
         </engine:VisualElement>
     </engine:VisualElement>
