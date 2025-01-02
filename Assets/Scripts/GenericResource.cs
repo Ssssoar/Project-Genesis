@@ -1,10 +1,15 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class PlungusCount : MonoBehaviour{
+public class Resource : MonoBehaviour{
+    [Header("Parameters")]
+    [SerializeField] string resourceName;
+    [SerializeField] string startingMin;
+    [SerializeField] string startingMax;
+
     [Header("Variables")]
-    [SerializeField] int min;
-    [SerializeField] int max;
+    int min;
+    int max;
     int count;
 
     [Header("References")]
@@ -17,8 +22,8 @@ public class PlungusCount : MonoBehaviour{
 
         root = uiComp.rootVisualElement;
 
-        button = root.Q("Buttons").Q("Plungus") as Button;
-        bar = root.Q("Resources").Q("Plungus").Q("Bar") as ProgressBar;
+        button = root.Q("Buttons").Q(resourceName) as Button;
+        bar = root.Q("Resources").Q(resourceName).Q("Bar") as ProgressBar;
 
         button.RegisterCallback<ClickEvent>(CountResource);
     }
