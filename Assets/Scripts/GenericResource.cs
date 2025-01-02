@@ -4,8 +4,8 @@ using UnityEngine.UIElements;
 public class Resource : MonoBehaviour{
     [Header("Parameters")]
     [SerializeField] string resourceName;
-    [SerializeField] string startingMin;
-    [SerializeField] string startingMax;
+    [SerializeField] int startingMin;
+    [SerializeField] int startingMax;
 
     [Header("Variables")]
     int min;
@@ -26,6 +26,9 @@ public class Resource : MonoBehaviour{
         bar = root.Q("Resources").Q(resourceName).Q("Bar") as ProgressBar;
 
         button.RegisterCallback<ClickEvent>(CountResource);
+
+        min = startingMin;
+        max = startingMax;
     }
 
     void OnDisable(){
