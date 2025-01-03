@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Resource : MonoBehaviour{
+public class ResourceTracker : MonoBehaviour{
     [Header("Parameters")]
     [SerializeField] string resourceName;
     [SerializeField] int startingMin;
