@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-[CreateAssetMenu(fileName = "Resource", menuName = "Scriptable Objects/Resource")]
+[CreateAssetMenu(fileName = "Resource", menuName    = "Scriptable Objects/Resource")]
 public class Resource : ScriptableObject{
-    [SerializeField] string singularName;
-    [SerializeField] string pluralName;
-    [SerializeField] VisualTreeAsset meterBlueprint;
-    [SerializeField] VisualTreeAsset buttonBlueprint;
+    public string id;
+    public string singularName;
+    public string pluralName;
+    public VisualTreeAsset meterBlueprint;
+    public VisualTreeAsset buttonBlueprint;
 }

@@ -3,12 +3,10 @@ using UnityEngine.UIElements;
 
 public class ResourceUIGenerator : MonoBehaviour{
     [Header("DEBUG")]
-    [SerializeField] string DEBUGNAMETOADD;
+    [SerializeField] Resource DEBUGRESOURCETOADD;
 
     [Header("References")]
     [SerializeField] UIDocument uIComp;
-    [SerializeField] VisualTreeAsset meterBlueprint;
-    [SerializeField] VisualTreeAsset buttonBlueprint;
     VisualElement root;
 
     void OnEnable(){
@@ -17,27 +15,27 @@ public class ResourceUIGenerator : MonoBehaviour{
 
     [ContextMenu("Create DEBUG")]
     void DEBUGCREATE(){
-        CreateNewResource(DEBUGNAMETOADD);
+        CreateNewResource(DEBUGRESOURCETOADD);
     }
 
-    void CreateNewResource(string resourceName){
-        CreateBar(resourceName);
-        CreateButton(resourceName);
+    void CreateNewResource(Resource res){
+        CreateBar(res);
+        CreateButton(res);
     }
 
-    void CreateBar(string name){
+    void CreateBar(Resource res){
         VisualElement origin = root.Q("Resources") as VisualElement;
-        VisualElement toAdd = meterBlueprint.Instantiate();
-        toAdd.Q("ResourceName").name = name;
-        (toAdd.Q(name).Q("Label") as Label).text = name;
+        VisualElement toAdd = res.meterBlueprint.Instantiate();
+        toAdd.Q("ResourceName").name = res.id;
+        (toAdd.Q(res.id).Q("Label") as Label).text = res.pluralName;
         origin.Add(toAdd);
     }
 
-    void CreateButton(string name){
+    void CreateButton(Resource res){
         VisualElement origin = root.Q("Buttons") as VisualElement;
-        VisualElement toAdd = buttonBlueprint.Instantiate();
-        toAdd.Q("ResourceName").name = name;
-        (toAdd.Q(name) as Button).text = name;
+        VisualElement toAdd = res.buttonBlueprint.Instantiate();
+        toAdd.Q("ResourceName").name = res.id;
+        (toAdd.Q(res.id) as Button).text = res.singularName;
         origin.Add(toAdd);
     }
 }

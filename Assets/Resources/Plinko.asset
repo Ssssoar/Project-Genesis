@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf2b49346673dc546bc4aff631af7ec7, type: 3}
-  m_Name: Plenktous 1
+  m_Name: Plinko
   m_EditorClassIdentifier: 
-  singularName: Plenktous
-  pluralName: Plenktoses
+  id: Plinko
+  singularName: Plinko
+  pluralName: Plinkos
   meterBlueprint: {fileID: 9197481963319205126, guid: 267ed087f31246a4ab5e62d467f47227, type: 3}
   buttonBlueprint: {fileID: 9197481963319205126, guid: 00dc10146b13f13468af291ccde6f37d, type: 3}

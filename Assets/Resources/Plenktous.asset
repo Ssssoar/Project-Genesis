@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf2b49346673dc546bc4aff631af7ec7, type: 3}
   m_Name: Plenktous
   m_EditorClassIdentifier: 
+  id: Plenktous
   singularName: Plenktous
   pluralName: Plenktoses
   meterBlueprint: {fileID: 9197481963319205126, guid: 267ed087f31246a4ab5e62d467f47227, type: 3}
