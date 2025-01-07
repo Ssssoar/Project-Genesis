@@ -3,32 +3,34 @@ using UnityEngine.UIElements;
 
 public class ResourceTracker : MonoBehaviour{
     [Header("Parameters")]
-    [SerializeField] string resourceName;
-    [SerializeField] int startingMin;
-    [SerializeField] int startingMax;
+    internal Resource resource;
 
     [Header("Variables")]
-    int min;
     int max;
+    int min;
     int count;
 
     [Header("References")]
-    [SerializeField] UIDocument uiComp;
-    VisualElement root;
     Button button;
     ProgressBar bar;
 
     void OnEnable(){
+        if (resource != null)
+            RunInit();
+    }
 
-        root = uiComp.rootVisualElement;
+    public void RunInit(){
 
-        button = root.Q("Buttons").Q(resourceName) as Button;
-        bar = root.Q("Resources").Q(resourceName).Q("Bar") as ProgressBar;
+        VisualElement root = ResourceUIGenerator.instance.root;
+
+        button = root.Q("Buttons").Q(resource.id) as Button;
+        bar = root.Q("Resources").Q(resource.id).Q("Bar") as ProgressBar;
 
         button.RegisterCallback<ClickEvent>(CountResource);
 
-        min = startingMin;
-        max = startingMax;
+        min = 0;
+        max = resource.initialMax;
+        
     }
 
     void OnDisable(){

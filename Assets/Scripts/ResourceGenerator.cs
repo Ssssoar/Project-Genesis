@@ -5,20 +5,31 @@ public class ResourceGenerator : MonoBehaviour{
     [Header("DEBUG")]
     [SerializeField] Resource DEBUGRESOURCETOADD;
 
+
     [ContextMenu("Create DEBUG")]
     void DEBUGCREATE(){
-        ResourceUIGenerator.instance.CreateNewResource(DEBUGRESOURCETOADD);
         CreateResource(DEBUGRESOURCETOADD);
     }
 
     void CreateResource(Resource res){
-        Type comp = typeof(Transform);
-        switch (res.type){
-            case(ResourceType.Generic):
-                comp = typeof(ResourceTracker);
-            break;
-        }
-        GameObject created = new GameObject(res.id , comp);
+        ResourceUIGenerator.instance.CreateNewResource(res);
+        CreateTracker(res);
+    }
+
+    void CreateTracker(Resource res){
+        Type compType = ResourceTypeFromEnum(res.type);
+        GameObject created = new GameObject(res.id , compType);
         created.transform.parent = transform;
+        ResourceTracker resComp = created.GetComponent<ResourceTracker>();
+        resComp.resource = res;
+        resComp.RunInit();
+    }
+
+    Type ResourceTypeFromEnum(ResourceType resEnum){
+        switch(resEnum){
+            case(ResourceType.Generic):
+            return typeof(ResourceTracker);
+        }
+        return typeof(Transform);
     }
 }

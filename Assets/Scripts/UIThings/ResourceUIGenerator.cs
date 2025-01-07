@@ -12,7 +12,7 @@ public class ResourceUIGenerator : MonoBehaviour{
 
     [Header("References")]
     [SerializeField] UIDocument uIComp;
-    VisualElement root;
+    internal VisualElement root;
 
     void OnEnable(){
         root = uIComp.rootVisualElement;

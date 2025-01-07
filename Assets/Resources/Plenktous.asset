@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Plenktous
   m_EditorClassIdentifier: 
   id: Plenktous
+  type: 0
   singularName: Plenktous
   pluralName: Plenktoses
   meterBlueprint: {fileID: 9197481963319205126, guid: 267ed087f31246a4ab5e62d467f47227, type: 3}
   buttonBlueprint: {fileID: 9197481963319205126, guid: 00dc10146b13f13468af291ccde6f37d, type: 3}
+  initialMax: 100
