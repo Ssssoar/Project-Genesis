@@ -2,8 +2,13 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 public class ResourceUIGenerator : MonoBehaviour{
-    [Header("DEBUG")]
-    [SerializeField] Resource DEBUGRESOURCETOADD;
+    public static ResourceUIGenerator instance;
+    void Awake(){
+        if (ResourceUIGenerator.instance != null)
+            Destroy(this);
+        else
+            ResourceUIGenerator.instance = this;
+    }
 
     [Header("References")]
     [SerializeField] UIDocument uIComp;
@@ -13,12 +18,7 @@ public class ResourceUIGenerator : MonoBehaviour{
         root = uIComp.rootVisualElement;
     }
 
-    [ContextMenu("Create DEBUG")]
-    void DEBUGCREATE(){
-        CreateNewResource(DEBUGRESOURCETOADD);
-    }
-
-    void CreateNewResource(Resource res){
+    public void CreateNewResource(Resource res){
         CreateBar(res);
         CreateButton(res);
     }

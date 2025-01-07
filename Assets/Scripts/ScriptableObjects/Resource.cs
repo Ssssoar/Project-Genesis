@@ -8,4 +8,5 @@ public class Resource : ScriptableObject{
     public string pluralName;
     public VisualTreeAsset meterBlueprint;
     public VisualTreeAsset buttonBlueprint;
+    public ResourceTracker tracker;
 }
