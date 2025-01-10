@@ -21,6 +21,7 @@ public class ResourceGenerator : MonoBehaviour{
         GameObject created = new GameObject(res.id , compType);
         created.transform.parent = transform;
         ResourceTracker resComp = created.GetComponent<ResourceTracker>();
+        if (resComp == null) return;
         resComp.resource = res;
         resComp.RunInit();
     }

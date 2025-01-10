@@ -20,7 +20,8 @@ public class ResourceUIGenerator : MonoBehaviour{
 
     public void CreateNewResource(Resource res){
         CreateBar(res);
-        CreateButton(res);
+        res.FunctionDefinition();
+        //CreateButton(res);
     }
 
     void CreateBar(Resource res){
@@ -30,12 +31,12 @@ public class ResourceUIGenerator : MonoBehaviour{
         (toAdd.Q(res.id).Q("Label") as Label).text = res.meterText;
         origin.Add(toAdd);
     }
-
+/*
     void CreateButton(Resource res){
         VisualElement origin = root.Q("Buttons") as VisualElement;
         VisualElement toAdd = res.buttonBlueprint.Instantiate();
         toAdd.Q("ResourceName").name = res.id;
         (toAdd.Q(res.id) as Button).text = res.buttonText;
         origin.Add(toAdd);
-    }
+    }*/
 }
