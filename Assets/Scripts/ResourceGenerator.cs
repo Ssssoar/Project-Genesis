@@ -17,7 +17,7 @@ public class ResourceGenerator : MonoBehaviour{
     }
 
     void CreateTracker(Resource res){
-        Type compType = ResourceTypeFromEnum(res.type);
+        Type compType = TrackerFromResource(res);
         GameObject created = new GameObject(res.id , compType);
         created.transform.parent = transform;
         ResourceTracker resComp = created.GetComponent<ResourceTracker>();
@@ -26,11 +26,9 @@ public class ResourceGenerator : MonoBehaviour{
         resComp.RunInit();
     }
 
-    Type ResourceTypeFromEnum(ResourceType resEnum){
-        switch(resEnum){
-            case(ResourceType.Generic):
+    Type TrackerFromResource(Resource res){
+        if ((res as SimpleResource) != null)
             return typeof(ResourceTracker);
-        }
         return typeof(Transform);
     }
 }
