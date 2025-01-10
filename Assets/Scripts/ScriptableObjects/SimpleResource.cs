@@ -7,7 +7,7 @@ public class SimpleResource : Resource{
     public VisualTreeAsset buttonBlueprint;
 
     public override void GenerateUI(VisualElement menuRoot){
-        CreateBar(menuRoot);
+        base.GenerateUI(menuRoot);
         CreateButton(menuRoot);
     }
 

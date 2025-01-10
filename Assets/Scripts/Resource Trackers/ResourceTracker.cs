@@ -11,7 +11,6 @@ public class ResourceTracker : MonoBehaviour{
     int count;
 
     [Header("References")]
-    Button button;
     ProgressBar bar;
 
     void OnEnable(){
@@ -19,30 +18,26 @@ public class ResourceTracker : MonoBehaviour{
             RunInit();
     }
 
-    public void RunInit(){
+    public virtual void RunInit(){
 
         VisualElement root = ResourceUIGenerator.instance.root;
 
-        button = root.Q("Buttons").Q(resource.id) as Button;
         bar = root.Q("Resources").Q(resource.id).Q("Bar") as ProgressBar;
-
-        button.RegisterCallback<ClickEvent>(CountResource);
 
         min = 0;
         max = resource.initialMax;
-        
     }
 
-    void OnDisable(){
-        button.UnregisterCallback<ClickEvent>(CountResource);
-    }
-
-    void CountResource(ClickEvent evnt){
-        count++;
-        if (count > max) 
+    public int AddResource(int toAdd){ //anyone who wants to add an ammount of this resource will call this
+        int overflow = 0; //if attempting to add more than will fit, the overflow will be informed as the return
+        count += toAdd;
+        if (count > max){
+            overflow = count - max;
             count = max;
-        else
-            UpdateBar();
+        }
+        UpdateBar();
+        return overflow;
+
     }
 
     void UpdateBar(){

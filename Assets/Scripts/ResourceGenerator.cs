@@ -28,7 +28,7 @@ public class ResourceGenerator : MonoBehaviour{
 
     Type TrackerFromResource(Resource res){
         if ((res as SimpleResource) != null)
-            return typeof(ResourceTracker);
-        return typeof(Transform);
+            return typeof(SimpleResourceTracker);
+        return typeof(ResourceTracker);
     }
 }
