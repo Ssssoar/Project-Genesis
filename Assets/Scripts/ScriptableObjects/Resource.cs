@@ -7,8 +7,8 @@ public enum ResourceType {Generic}
 public class Resource : ScriptableObject{
     public string id;
     public ResourceType type;
-    public string singularName;
-    public string pluralName;
+    public string buttonText;
+    public string meterText;
     public VisualTreeAsset meterBlueprint;
     public VisualTreeAsset buttonBlueprint;
     public int initialMax;
