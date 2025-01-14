@@ -12,6 +12,8 @@ public class UIGenerator : MonoBehaviour{
 
     [Header("References")]
     [SerializeField] UIDocument uIComp;
+    [SerializeField] Transform displayParent;
+    [SerializeField] Transform buttonParent;
     internal VisualElement root;
 
     void OnEnable(){
@@ -19,7 +21,7 @@ public class UIGenerator : MonoBehaviour{
     }
 
     public void CreateDisplay(Resource res){
-        BarDisplay newDisplay = Instantiate(res.display , transform);
+        BarDisplay newDisplay = Instantiate(res.display , displayParent);
         newDisplay.resource = res;
     }
 
