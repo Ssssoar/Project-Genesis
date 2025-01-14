@@ -12,7 +12,7 @@ public class ResourceGenerator : MonoBehaviour{
     }
 
     void CreateResource(Resource res){
-        ResourceUIGenerator.instance.CreateNewResource(res);
+        UIGenerator.instance.CreateDisplay(res);
         CreateTracker(res);
     }
 

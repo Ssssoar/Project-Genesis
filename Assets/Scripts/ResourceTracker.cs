@@ -21,7 +21,7 @@ public class ResourceTracker : MonoBehaviour{
 
     public void RunInit(){
 
-        VisualElement root = ResourceUIGenerator.instance.root;
+        VisualElement root = UIGenerator.instance.root;
 
         button = root.Q("Buttons").Q(resource.id) as Button;
         bar = root.Q("Resources").Q(resource.id).Q("Bar") as ProgressBar;

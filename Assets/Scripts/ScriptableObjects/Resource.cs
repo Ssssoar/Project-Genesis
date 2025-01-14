@@ -9,7 +9,7 @@ public class Resource : ScriptableObject{
     public ResourceType type;
     public string buttonText;
     public string meterText;
-    public VisualTreeAsset meterBlueprint;
+    public BarDisplay display;
     public VisualTreeAsset buttonBlueprint;
     public int initialMax;
 }

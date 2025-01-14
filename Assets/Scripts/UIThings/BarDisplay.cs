@@ -14,10 +14,10 @@ public class BarDisplay : MonoBehaviour{
 
     [Header("Blueprints")] //by which I mean anything that is stored in the files and not as part of the current scene
     [SerializeField] VisualTreeAsset barBlueprint;
-    [SerializeField] Resource resource; //MUST BE GIVEN AT TIME OF INSTANTIATION
+    public Resource resource; //MUST BE GIVEN AT TIME OF INSTANTIATION
 
     void OnEnable(){
-        holder = ResourceUIGenerator.instance.root.Q("Resources");
+        holder = UIGenerator.instance.root.Q("Resources");
 
         origin = barBlueprint.Instantiate();
         origin.Q("ResourceName").name = resource.id;

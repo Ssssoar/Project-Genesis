@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class ResourceUIGenerator : MonoBehaviour{
-    public static ResourceUIGenerator instance;
+public class UIGenerator : MonoBehaviour{
+    public static UIGenerator instance;
     void Awake(){
-        if (ResourceUIGenerator.instance != null)
+        if (UIGenerator.instance != null)
             Destroy(this);
         else
-            ResourceUIGenerator.instance = this;
+            UIGenerator.instance = this;
     }
 
     [Header("References")]
@@ -18,17 +18,9 @@ public class ResourceUIGenerator : MonoBehaviour{
         root = uIComp.rootVisualElement;
     }
 
-    public void CreateNewResource(Resource res){
-        CreateBar(res);
-        CreateButton(res);
-    }
-
-    void CreateBar(Resource res){
-        VisualElement origin = root.Q("Resources") as VisualElement;
-        VisualElement toAdd = res.meterBlueprint.Instantiate();
-        toAdd.Q("ResourceName").name = res.id;
-        (toAdd.Q(res.id).Q("Label") as Label).text = res.meterText;
-        origin.Add(toAdd);
+    public void CreateDisplay(Resource res){
+        BarDisplay newDisplay = Instantiate(res.display , transform);
+        newDisplay.resource = res;
     }
 
     void CreateButton(Resource res){
