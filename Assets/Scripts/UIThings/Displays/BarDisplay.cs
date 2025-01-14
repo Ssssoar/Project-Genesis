@@ -12,12 +12,15 @@ public class BarDisplay : MonoBehaviour{
     VisualElement origin; //Everything that the bar is, the inner
     ProgressBar bar;
 
+    [Header("Parameters")]
+    [SerializeField] string holderName;
+
     [Header("Blueprints")] //by which I mean anything that is stored in the files and not as part of the current scene
     [SerializeField] VisualTreeAsset barBlueprint;
     public Resource resource; //MUST BE GIVEN AT TIME OF INSTANTIATION
 
     void OnEnable(){
-        holder = UIGenerator.instance.root.Q("Resources");
+        holder = UIGenerator.instance.root.Q(holderName);
 
         origin = barBlueprint.Instantiate();
         origin.Q("ResourceName").name = resource.id;
