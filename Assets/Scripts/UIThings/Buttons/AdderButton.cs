@@ -25,16 +25,17 @@ public class AdderButton : UIElement{
         origin.Q("ResourceName").name = asset.id;
         button = origin.Q(asset.id) as Button;
         button.text = asset.buttonText;
-        button.RegisterCallback<ClickEvent>(CountResource);
+        //get the callback from the corresponding tracker
+        ResourceTracker tracker = TrackerIndexer.instance.GetTracker(asset.resource.id);
+        button.RegisterCallback<ClickEvent>(tracker.CountResource);
     }
 
     protected override void OnDisable(){
-        button.UnregisterCallback<ClickEvent>(CountResource);
+        //get the callback from the corresponding tracker
+        ResourceTracker tracker = TrackerIndexer.instance.GetTracker(asset.resource.id);
+        button.UnregisterCallback<ClickEvent>(tracker.CountResource);
+
         base.OnDisable();
         button = null;
-    }
-
-    void CountResource(ClickEvent evnt){
-        Debug.Log("DO THE MARIO");
     }
 }

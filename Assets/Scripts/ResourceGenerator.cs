@@ -27,19 +27,12 @@ public class ResourceGenerator : MonoBehaviour{
     }
 
     void CreateTracker(Resource res){
-        Type compType = ResourceTypeFromEnum(res.type);
-        GameObject created = new GameObject(res.id , compType);
+        GameObject created = new GameObject(res.id + "Tracker" , typeof(ResourceTracker));
         created.transform.parent = transform;
         ResourceTracker resComp = created.GetComponent<ResourceTracker>();
         resComp.resource = res;
         resComp.RunInit();
-    }
-
-    Type ResourceTypeFromEnum(ResourceType resEnum){
-        switch(resEnum){
-            case(ResourceType.Generic):
-            return typeof(ResourceTracker);
-        }
-        return typeof(Transform);
+        //inform the Tracker Indexer of this new tracker
+        TrackerIndexer.instance.AddTracker(resComp);
     }
 }
