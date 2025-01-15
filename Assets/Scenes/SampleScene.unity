@@ -381,6 +381,7 @@ GameObject:
   m_Component:
   - component: {fileID: 869537809}
   - component: {fileID: 869537810}
+  - component: {fileID: 869537811}
   m_Layer: 0
   m_Name: ResourceTracker
   m_TagString: Untagged
@@ -415,8 +416,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09712f19b6fc01e41af7a6e9b57db4d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DEBUGRESOURCETOADD: {fileID: 11400000, guid: fb62f57614ac02148afe91c474d96170, type: 2}
+  DEBUGRESOURCETOADD: {fileID: 11400000, guid: 448674ab7810bab4b9f012a77a6db175, type: 2}
   DEBUGBUTTONTOADD: {fileID: 11400000, guid: b513746b6551c9b4db65904ec56310b1, type: 2}
+--- !u!114 &869537811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869537808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e92b102a94327f4badf4c67dce76f57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1453422315
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,6 +473,7 @@ GameObject:
   - component: {fileID: 1691253061}
   - component: {fileID: 1691253063}
   - component: {fileID: 1691253064}
+  - component: {fileID: 1691253065}
   m_Layer: 5
   m_Name: UIDocument
   m_TagString: Untagged
@@ -530,6 +544,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b6b495465fc99042b0d0e28a50baa39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1691253065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691253060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036f003795bf24a40aa5c01f73a31a71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoUpdateTime: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -20,4 +20,12 @@ public class DisplayIndexer : MonoBehaviour{
     public BarDisplay GetDisplay(string resID){
         return displayIndex[resID];
     }
+
+    public List<BarDisplay> GetAllDisplays(){
+        List<BarDisplay> retList = new List<BarDisplay>();
+        foreach (KeyValuePair<string , BarDisplay> entry in displayIndex){
+            retList.Add(entry.Value);
+        }
+        return retList;
+    }
 }

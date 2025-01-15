@@ -28,6 +28,13 @@ public class BarDisplay : UIElement{
         origin.Q("ResourceName").name = resource.id;
         (origin.Q(resource.id).Q("Label") as Label).text = resource.meterText;
         bar = origin.Q(resource.id).Q("Bar") as ProgressBar;
+
+        min = 0;
+        max = resource.initialMax;
+        count = 0;
+
+        UpdateBar(0);
+        UpdateLimits(0 , resource.initialMax);
     }
 
     protected override void OnDisable(){
@@ -43,11 +50,20 @@ public class BarDisplay : UIElement{
         bar.value = count;
     }
 
-    void UpdateLimits(int newMax, int newMin){
+    void UpdateLimits(int newMin, int newMax){
         min = newMin;
         max = newMax;
         bar.highValue = max;
         bar.lowValue = min;
         bar.title = count + " / " + max;
+    }
+
+    public void UpdateAll(){
+        ResourceTracker tracker = TrackerIndexer.instance.GetTracker(resource.id);
+        if (tracker == null) return;
+        if (count != tracker.count)
+            UpdateBar(tracker.count);
+        if ( (min != tracker.min) || (max != tracker.max) )
+            UpdateLimits(tracker.min , tracker.max);
     }
 }

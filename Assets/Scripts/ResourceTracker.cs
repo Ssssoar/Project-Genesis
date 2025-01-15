@@ -6,9 +6,9 @@ public class ResourceTracker : MonoBehaviour{
     internal Resource resource;
 
     [Header("Variables")]
-    int max;
-    int min;
-    int count;
+    internal int max;
+    internal int min;
+    internal int count;
 
     void OnEnable(){
         if (resource != null)
@@ -25,5 +25,6 @@ public class ResourceTracker : MonoBehaviour{
         count++;
         if (count > max) 
             count = max;
+        DisplayUpdater.instance.UpdateDisplay(resource.id);
     }
 }
