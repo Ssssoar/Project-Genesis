@@ -1,5 +1,5 @@
 using UnityEngine;
 
-public class AdderButton : MonoBehaviour{
-    
+public class AdderButton : UIElement{
+    public AdderAsset asset;
 }
