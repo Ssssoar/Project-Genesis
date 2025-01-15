@@ -23,6 +23,7 @@ public class UIGenerator : MonoBehaviour{
     public void CreateDisplay(Resource res){
         BarDisplay newDisplay = Instantiate(res.display , displayParent);
         newDisplay.resource = res;
+        newDisplay.Init(); //VERY ICKY I DON'T LIKE THIS
     }
 
     void CreateButton(Resource res){

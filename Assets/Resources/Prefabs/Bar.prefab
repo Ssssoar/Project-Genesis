@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holderName: Resources
-  barBlueprint: {fileID: 9197481963319205126, guid: 267ed087f31246a4ab5e62d467f47227, type: 3}
-  resource: {fileID: 11400000, guid: fb62f57614ac02148afe91c474d96170, type: 2}
+  blueprint: {fileID: 9197481963319205126, guid: 267ed087f31246a4ab5e62d467f47227, type: 3}
+  resource: {fileID: 0}
