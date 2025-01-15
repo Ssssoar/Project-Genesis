@@ -4,11 +4,21 @@ using System;
 public class ResourceGenerator : MonoBehaviour{
     [Header("DEBUG")]
     [SerializeField] Resource DEBUGRESOURCETOADD;
+    [SerializeField] UIButton DEBUGBUTTONTOADD;
 
 
-    [ContextMenu("Create DEBUG")]
+    [ContextMenu("Create Res DEBUG")]
     void DEBUGCREATE(){
         CreateResource(DEBUGRESOURCETOADD);
+    }    
+    
+    [ContextMenu("Create Button DEBUG")]
+    void DEBUGCREATE2(){ //electric boogaloo
+        CreateButton(DEBUGBUTTONTOADD);
+    }
+
+    void CreateButton(UIButton button){
+        UIGenerator.instance.CreateButton(button);
     }
 
     void CreateResource(Resource res){

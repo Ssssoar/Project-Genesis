@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79083ab54d92366468b8825202364e1d, type: 3}
   m_Name: Plinko10
   m_EditorClassIdentifier: 
-  buttonText: 
-  resource: {fileID: 0}
+  id: Plinko10
+  buttonText: Contemplate Plinko
+  button: {fileID: 3788348551800773354, guid: d6015c6d3e13fe841897e6c7394bc45f, type: 3}
+  resource: {fileID: 11400000, guid: 448674ab7810bab4b9f012a77a6db175, type: 2}
+  ammount: 10

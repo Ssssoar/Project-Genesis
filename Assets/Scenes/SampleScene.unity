@@ -416,6 +416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DEBUGRESOURCETOADD: {fileID: 11400000, guid: fb62f57614ac02148afe91c474d96170, type: 2}
+  DEBUGBUTTONTOADD: {fileID: 11400000, guid: b513746b6551c9b4db65904ec56310b1, type: 2}
 --- !u!1 &1453422315
 GameObject:
   m_ObjectHideFlags: 0

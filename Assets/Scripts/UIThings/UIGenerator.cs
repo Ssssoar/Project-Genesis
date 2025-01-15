@@ -26,11 +26,9 @@ public class UIGenerator : MonoBehaviour{
         newDisplay.Init(); //VERY ICKY I DON'T LIKE THIS
     }
 
-    void CreateButton(Resource res){
-        VisualElement origin = root.Q("Buttons") as VisualElement;
-        VisualElement toAdd = res.buttonBlueprint.Instantiate();
-        toAdd.Q("ResourceName").name = res.id;
-        (toAdd.Q(res.id) as Button).text = res.buttonText;
-        origin.Add(toAdd);
+    public void CreateButton(UIButton asset){
+        AdderButton newButton = Instantiate(asset.button , buttonParent);
+        newButton.genAsset = asset;
+        newButton.Init(); //VERY ICKY I DON'T LIKE THIS
     }
 }
