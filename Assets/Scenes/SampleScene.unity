@@ -459,6 +459,7 @@ GameObject:
   - component: {fileID: 1691253062}
   - component: {fileID: 1691253061}
   - component: {fileID: 1691253063}
+  - component: {fileID: 1691253064}
   m_Layer: 5
   m_Name: UIDocument
   m_TagString: Untagged
@@ -517,6 +518,18 @@ MonoBehaviour:
   uIComp: {fileID: 1691253061}
   displayParent: {fileID: 93617057}
   buttonParent: {fileID: 1453422316}
+--- !u!114 &1691253064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691253060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b6b495465fc99042b0d0e28a50baa39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

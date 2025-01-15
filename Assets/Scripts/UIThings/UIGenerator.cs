@@ -24,6 +24,7 @@ public class UIGenerator : MonoBehaviour{
         BarDisplay newDisplay = Instantiate(res.display , displayParent);
         newDisplay.resource = res;
         newDisplay.Init(); //VERY ICKY I DON'T LIKE THIS
+        DisplayIndexer.instance.AddDisplay(newDisplay);
     }
 
     public void CreateButton(UIButton asset){
