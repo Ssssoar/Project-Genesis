@@ -15,9 +15,14 @@ public class TrackerIndexer : MonoBehaviour{
     
     public void AddTracker(ResourceTracker tracker){
         trackerIndex.Add(tracker.resource.id , tracker);
+        StandbyHookups.instance.NotifyNewResource(tracker.resource.id);
     }
 
     public ResourceTracker GetTracker(string resID){
-        return trackerIndex[resID];
+        try{
+            return trackerIndex[resID];
+        }catch{
+            return null;
+        }
     }
 }

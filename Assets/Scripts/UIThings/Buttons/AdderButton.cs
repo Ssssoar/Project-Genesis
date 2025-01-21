@@ -27,7 +27,11 @@ public class AdderButton : UIElement{
         button.text = asset.buttonText;
         //get the callback from the corresponding tracker
         ResourceTracker tracker = TrackerIndexer.instance.GetTracker(asset.resource.id);
-        button.RegisterCallback<ClickEvent>(tracker.CountResource);
+        if (tracker == null){
+            StandbyHookups.instance.NewStandby(this , asset.resource.id);
+        }else{
+            HookUp(tracker);
+        }
     }
 
     protected override void OnDisable(){
@@ -37,5 +41,17 @@ public class AdderButton : UIElement{
 
         base.OnDisable();
         button = null;
+    }
+
+    public void HookUp(ResourceTracker trackerToHookup){
+        button.RegisterCallback<ClickEvent>(trackerToHookup.CountResource);
+    }
+
+    public void HookUp(string id){
+        ResourceTracker tracker = TrackerIndexer.instance.GetTracker(asset.resource.id);
+        if (tracker != null)
+            HookUp(tracker);
+        else
+            Debug.Log("HookUp attempted but no tracker matching id '" + id + "' was found");
     }
 }
