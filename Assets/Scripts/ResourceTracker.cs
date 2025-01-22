@@ -21,8 +21,8 @@ public class ResourceTracker : MonoBehaviour{
         
     }
 
-    public void CountResource(ClickEvent evnt){
-        count++;
+    public void CountResource(ClickEvent evnt , int ammount){
+        count += ammount;
         if (count > max) 
             count = max;
         DisplayUpdater.instance.UpdateDisplay(resource.id);

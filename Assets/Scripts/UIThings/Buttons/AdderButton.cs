@@ -26,7 +26,7 @@ public class AdderButton : ButtonElem, IHookupable{
     protected override void OnDisable(){
         //get the callback from the corresponding tracker
         ResourceTracker tracker = TrackerIndexer.instance.GetTracker(asset.resource.id);
-        button.UnregisterCallback<ClickEvent>(tracker.CountResource);
+        button.UnregisterCallback<ClickEvent , int>(tracker.CountResource);
 
         base.OnDisable();
     }
@@ -36,7 +36,7 @@ public class AdderButton : ButtonElem, IHookupable{
     }
 
     public void HookUp(ResourceTracker trackerToHookup){
-        button.RegisterCallback<ClickEvent>(trackerToHookup.CountResource);
+        button.RegisterCallback<ClickEvent , int>(trackerToHookup.CountResource , asset.ammount);
     }
 
     public void HookUp(string id){
