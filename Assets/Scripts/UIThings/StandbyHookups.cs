@@ -14,16 +14,16 @@ public class StandbyHookups : MonoBehaviour{ //a script in charge of remembering
 
     struct WaitingList{ //it represents a single resource being waited for, and all objects waiting for it as a list
         public string waitingFor;
-        public List<ButtonElem> onStandby;
+        public List<IHookupable> onStandby;
         public WaitingList(string id){
             waitingFor = id;
-            onStandby = new List<ButtonElem>();
+            onStandby = new List<IHookupable>();
         }
     }
 
     List<WaitingList> waitLists = new List<WaitingList>();
 
-    public void NewStandby(ButtonElem standByer, string awaited){
+    public void NewStandby(IHookupable standByer, string awaited){
         //check lists if there is one already waiting for this resource
         bool added = false;
         foreach(WaitingList list in waitLists){
@@ -44,7 +44,7 @@ public class StandbyHookups : MonoBehaviour{ //a script in charge of remembering
     public void NotifyNewResource(string newId){
         foreach (WaitingList list in waitLists){
             if (newId == list.waitingFor){
-                foreach(ButtonElem button in list.onStandby){
+                foreach(IHookupable button in list.onStandby){
                     button.HookUp(newId);
                 }
                 waitLists.Remove(list);
