@@ -28,7 +28,7 @@ public class UIGenerator : MonoBehaviour{
     }
 
     public void CreateButton(UIButton asset){
-        AdderButton newButton = Instantiate(asset.button , buttonParent);
+        ButtonElem newButton = Instantiate(asset.button , buttonParent);
         newButton.genAsset = asset;
         newButton.Init(); //VERY ICKY I DON'T LIKE THIS
     }

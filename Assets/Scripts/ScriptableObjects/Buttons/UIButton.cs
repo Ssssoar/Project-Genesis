@@ -4,5 +4,5 @@ using UnityEngine;
 public class UIButton : ScriptableObject{
     public string id;
     public string buttonText;
-    public AdderButton button;
+    public ButtonElem button;
 }
