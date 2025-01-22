@@ -18,6 +18,11 @@ public class ResourceGenerator : MonoBehaviour{
     }
 
     void CreateButton(UIButton button){
+        //prevent creation if a button with this id already exists
+        if (ButtonElemIndexer.instance.GetButton(button.id) != null){
+            Debug.Log("Button creation failed: Button already exists");
+            return;
+        }
         UIGenerator.instance.CreateButton(button);
     }
 

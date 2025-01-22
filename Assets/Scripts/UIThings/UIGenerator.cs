@@ -31,5 +31,7 @@ public class UIGenerator : MonoBehaviour{
         ButtonElem newButton = Instantiate(asset.button , buttonParent);
         newButton.genAsset = asset;
         newButton.Init(); //VERY ICKY I DON'T LIKE THIS
+
+        ButtonElemIndexer.instance.AddButton(newButton);
     }
 }
