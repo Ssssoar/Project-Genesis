@@ -22,6 +22,12 @@ public class ResourceGenerator : MonoBehaviour{
     }
 
     void CreateResource(Resource res){
+        //prevent creation if a tracker with this id already exists
+        if (TrackerIndexer.instance.GetTracker(res.id) != null){
+            Debug.Log("Tracker creation failed: Tracker already exists");
+            return;
+        }
+
         UIGenerator.instance.CreateDisplay(res);
         CreateTracker(res);
     }
