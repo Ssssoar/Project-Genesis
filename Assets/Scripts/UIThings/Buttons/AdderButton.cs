@@ -2,29 +2,18 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 public class AdderButton : UIElement{
-    [Header("AdderButton References")]
-    public Button button;
 
     [Header("AdderButton Blueprints")]
-    public UIButton genAsset;
-    public AdderAsset asset;
-
-    void Start(){
-        gameObject.name = asset.buttonText + "Button";
-    }
-
-    protected override void OnEnable(){
-        if (asset == null) return;
-        Init();
-    }
+    AdderAsset asset;
 
     public void Init(){
         asset = genAsset as AdderAsset;
+        if (asset == null){
+            Debug.Log("genAsset on AdderButtons should be of type AdderAsset");
+        }
+
         base.OnEnable();
 
-        origin.Q("ResourceName").name = asset.id;
-        button = origin.Q(asset.id) as Button;
-        button.text = asset.buttonText;
         //get the callback from the corresponding tracker
         ResourceTracker tracker = TrackerIndexer.instance.GetTracker(asset.resource.id);
         if (tracker == null){
