@@ -1,18 +1,18 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class AdderButton : UIElement{
+public class AdderButton : ButtonElem, IHookupable{
 
     [Header("AdderButton Blueprints")]
     AdderAsset asset;
 
-    public void Init(){
+    public override void Init(){
         asset = genAsset as AdderAsset;
         if (asset == null){
             Debug.Log("genAsset on AdderButtons should be of type AdderAsset");
         }
 
-        base.OnEnable();
+        base.Init();
 
         //get the callback from the corresponding tracker
         ResourceTracker tracker = TrackerIndexer.instance.GetTracker(asset.resource.id);
@@ -29,7 +29,10 @@ public class AdderButton : UIElement{
         button.UnregisterCallback<ClickEvent>(tracker.CountResource);
 
         base.OnDisable();
-        button = null;
+    }
+
+    protected override void OnClickedButton(ClickEvent evnt){
+        return;
     }
 
     public void HookUp(ResourceTracker trackerToHookup){

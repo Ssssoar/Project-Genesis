@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ButtonElem : UIElement{
     [Header("ButtonElem References")]
@@ -17,41 +18,25 @@ public class ButtonElem : UIElement{
         Init();
     }
 
-    public void Init(){
+    public virtual void Init(){
         base.OnEnable();
 
         origin.Q("ResourceName").name = genAsset.id;
         button = origin.Q(genAsset.id) as Button;
         button.text = genAsset.buttonText;
 
-        Hookup();
-        //get the callback from the corresponding tracker
-        ResourceTracker tracker = TrackerIndexer.instance.GetTracker(asset.resource.id);
-        if (tracker == null){
-            StandbyHookups.instance.NewStandby(this , asset.resource.id);
-        }else{
-            HookUp(tracker);
-        }
+        
+        button.RegisterCallback<ClickEvent>(OnClickedButton);
     }
 
     protected override void OnDisable(){
-        //get the callback from the corresponding tracker
-        ResourceTracker tracker = TrackerIndexer.instance.GetTracker(asset.resource.id);
-        button.UnregisterCallback<ClickEvent>(tracker.CountResource);
+        button.UnregisterCallback<ClickEvent>(OnClickedButton);
 
         base.OnDisable();
         button = null;
     }
 
-    public void HookUp(ResourceTracker trackerToHookup){
-        button.RegisterCallback<ClickEvent>(trackerToHookup.CountResource);
-    }
-
-    public void HookUp(string id){
-        ResourceTracker tracker = TrackerIndexer.instance.GetTracker(asset.resource.id);
-        if (tracker != null)
-            HookUp(tracker);
-        else
-            Debug.Log("HookUp attempted but no tracker matching id '" + id + "' was found");
+    protected virtual void OnClickedButton(ClickEvent evnt){
+        Debug.Log("Default button Click Function to be overriden");
     }
 }
